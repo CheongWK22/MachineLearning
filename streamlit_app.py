@@ -10,7 +10,12 @@ linear_regression_model = joblib.load('linear_regression_model.joblib')
 
 # Function to predict price using the models
 def predict_price(model, data):
+    # Ensure data is reshaped into a 2D array
     data = np.array(list(data.values())).reshape(1, -1)
+    
+    # Print shape to debug in case of issues
+    st.write(f"Input data shape: {data.shape}")
+    
     return model.predict(data)[0]
 
 # Create UI components for user input
